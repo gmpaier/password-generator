@@ -1,15 +1,10 @@
-// Assignment Code
+// variable generation
 var generateBtn = document.querySelector("#generate");
 
 var lowerChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" ];
 var numberChar = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "="];
-
-var minLength;
-var maxLength;
-
-
 
 // Write password to the #password input
 function writePassword() {
@@ -24,10 +19,8 @@ function generatePassword(){
     var passChar = [];
     var tempPass = [];
     var lastPass = "";
-    
-    var x;
-    var y;
-    var z;
+    var minLength;
+    var maxLength;
 
     minLength = parseInt(prompt("Please enter a minimum password length."));
     while ((!(minLength >= 8)) || (!(minLength <= 128))){
@@ -70,13 +63,15 @@ function generatePassword(){
     tempPass.push(passChar[Math.floor(Math.random()*passChar.length)]);
     }
 
-
-    for (x = tempPass.length -1; x > 0; x--) {
-        y = Math.floor(Math.random() * x)
-        z = tempPass[x]
-        tempPass[x] = tempPass[y]
-        tempPass[y] = z
-    }
+    randomSort()
+    //var x, y, z;
+    //Fisher-Yates Random Sort
+    // for (x = tempPass.length -1; x > 0; x--) {
+    //     y = Math.floor(Math.random() * x)
+    //     z = tempPass[x]
+    //     tempPass[x] = tempPass[y]
+    //     tempPass[y] = z
+    // }
 
     for(var n=0; n<tempPass.length; n++) {
         lastPass = lastPass + tempPass[n];
@@ -85,7 +80,19 @@ function generatePassword(){
     return lastPass;
 }
 
-// Add event listener to generate button
+function randomSort(targetArray){
+
+  for (x = targetArray.length -1; x > 0; x--) {
+    y = Math.floor(Math.random() * x)
+    z = targetArray[x]
+    targetArray[x] = targetArray[y]
+    targetArray[y] = z
+}
+
+
+}
+
+//event listener
 generateBtn.addEventListener("click", writePassword);
 
 
