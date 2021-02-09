@@ -18,6 +18,6 @@ Requirements:
 
 Contents:
 
-- index.html, script0.js - This solution strictly follows the guidelines of the assignment, utilizing prompts to have the user set the password length and choose the character sets used. In the case an invalid input is taken, the user is re-prompted. 
+- prompt.html, script0.js - This solution strictly follows the guidelines of the assignment, utilizing prompts to have the user set the password length and choose the character sets used. In the case an invalid input is taken, the user is re-prompted. 
 
 (THE FOLLOWING CONTENT WAS WORKED ON BUT NOT INCLUDED- checkbox.html, script1.js - This solution strays from assignment guidelines in an effort to improve security and ease of usability. Rather than prompts, a combination of drop downs and checkboxes are used for inputs. Using drop downs, the user specifies a minimum and maximum length between 8 and 128; the password will be a random length within the specified range. Drop down values are actively adjusted to prevent the minimum being higher than the maximum and vice versa. In the case that no character sets are selected, the generate password button will be disabled.)
